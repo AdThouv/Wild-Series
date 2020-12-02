@@ -3,6 +3,12 @@
 {% block body %}
     <h1>{{ welcome }}</h1>
 
-    <img src="{{ asset('build/path_to_image.png') }}" alt=""/>
+    <a href="{{ path('program_index') }}">
+        Voir les séries
+    </a>
+    </br>
+    <a href="{{ path('category_index') }}">
+        Voir les catégories
+    </a>
 
 {% endblock %}
