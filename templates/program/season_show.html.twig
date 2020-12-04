@@ -5,20 +5,20 @@
 
 <div class="media">
   <div class="media-body">
-  {% for seasons in season %}
-    <h1 class="mt-0"> Saison {{ seasons.number }} de {{ program.title }}</h1>
-    <p>{{ seasons.description }}</p>
+  
+    <h1 class="mt-0"> Saison {{ season.number }} de {{ program.title }}</h1>
+    <p>{{ season.description }}</p>
     <ul>
         <p> Liste des épisodes : </p>
         {% for episode in episodes %}
         <li> 
-          <p> Episode {{episode.number }} : {{ episode.title }}</p>
+          <p><a href="{{ path('program_episode_show', { "program":program.id ,"season": season.id,"episode": episode.id })}}"> Episode {{episode.number }} : {{ episode.title }}</p>
         </li>
         {% endfor %}
     </ul>
     
    
-    {% endfor %}
+    
   </div>
 </div>
  
