@@ -62,30 +62,10 @@ class ProgramController extends AbstractController
 
 
 
-        return $this->render('category/new.html.twig', [
+        return $this->render('program/new.html.twig', [
             "form" => $form->createView(),
         ]);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Getting a program by id
      *
