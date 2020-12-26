@@ -8,3 +8,7 @@ $theme-colors: (
 body{
     background-color:#bdbdbd
 };
+.navbar-nav{
+    display:flex;
+    justify-content: space-around;
+}
