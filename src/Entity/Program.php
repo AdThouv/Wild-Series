@@ -184,4 +184,10 @@ class Program
 
         return $this;
     }
+    public function setActor(Actor $actor): self
+    {
+        $this->actor = $actor;
+
+        return $this;
+    }
 }
