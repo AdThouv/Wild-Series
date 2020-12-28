@@ -22,3 +22,8 @@ https://www.loom.com/share/4dcc024b92244acd98fd3e4d13df14d1
 
 Quetes 15
 https://www.loom.com/share/adb9f14f807446329196ea28fdd40ac3
+
+Quetes 16.1
+https://www.loom.com/share/0468bfe3c354452aaba54e165564e4a5
+
+Quetes 16.2
