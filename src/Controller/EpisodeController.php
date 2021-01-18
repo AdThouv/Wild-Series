@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Episode;
+use App\Form\CommentType;
 use App\Form\EpisodeType;
 use App\Repository\EpisodeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\Slugify;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Form\FormTypeInterface;
 
 /**
  * @Route("/episode")
@@ -53,13 +56,31 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="episode_show", methods={"GET"})
+     * @Route("/{slug}", name="episode_show", methods={"GET","POST"})
      * @ParamConverter("episode", class="App\Entity\Episode", options={"mapping": {"slug": "slug"}})
      */
-    public function show(Episode $episode): Response
+    public function show(Episode $episode, Request $request): Response
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+        $user= $this->getUser();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $comment->setAuthor($user);
+            $comment->setEpisode($episode);
+            $entityManager->persist($comment);
+            $entityManager->flush();
+        
+
+        }
+
         return $this->render('episode/show.html.twig', [
             'episode' => $episode,
+            'form' => $form->createView(),
+            'comment' => $comment,
+
         ]);
     }
 
@@ -75,6 +96,7 @@ class EpisodeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $slug = $slugify->generate($episode->getTitle());
             $episode->setSlug($slug);
+            
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('episode_index');
