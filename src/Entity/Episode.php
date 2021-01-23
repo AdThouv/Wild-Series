@@ -49,6 +49,12 @@ class Episode
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Program::class, inversedBy="episodes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $program;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -145,6 +151,18 @@ class Episode
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getProgram(): ?Program
+    {
+        return $this->program;
+    }
+
+    public function setProgram(?Program $program): self
+    {
+        $this->program = $program;
 
         return $this;
     }

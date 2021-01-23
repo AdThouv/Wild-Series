@@ -3,37 +3,35 @@
 {% block title %}Episode index{% endblock %}
 
 {% block body %}
-    <h1>Episode index</h1>
+    <h1>Episodes</h1>
+    {% for episode in episodes %}
+    <ul class='episode-index'>
+        <li>
+            <h3> Episode : {{ episode.number }}</h3>  
+        </li>
+        <li>
+            <h3>Titre : {{ episode.title }}</h3>  
+        </li>
+        <li>  
+            <h5> Résumé :</h5>
+            <p>{{ episode.synopsis }}</p>   
+        </li>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Number</th>
-                <th>Synopsis</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for episode in episodes %}
-            <tr>
-                <td>{{ episode.id }}</td>
-                <td>{{ episode.title }}</td>
-                <td>{{ episode.number }}</td>
-                <td>{{ episode.synopsis }}</td>
-                <td>
-                    <a href="{{ path('episode_show', {'slug': episode.slug}) }}">show</a>
-                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <li>
+            <h3> Série : {{ episode.program.id }}</h3>
+        </li>
+ 
+    </ul>        
 
+                <div class="button">
+                <a href="{{ path('episode_show', {'slug': episode.slug}) }}" class="btn btn-primary">Voir plus</a>
+                <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn btn-primary">Editer</a>
+                <a href="{{ path('episode_delete', {'id': episode.id} ) }}" class="btn btn-primary">{{ include('episode/_delete_form.html.twig') }}</a>
+
+            </div>
+        </div>
+    </div>  
+    {% endfor %}
+ 
     <a href="{{ path('episode_new') }}">Ajouter un épisode</a>
 {% endblock %}

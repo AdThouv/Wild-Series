@@ -23,7 +23,7 @@ class Program1Type extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
-                'by_reference' => false,
+                'by_reference' =>false,
             ]);
         ;
     }

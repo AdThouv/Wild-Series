@@ -14,6 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\Slugify;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 /**
  * @Route("/episode")
@@ -33,7 +35,7 @@ class EpisodeController extends AbstractController
     /**
      * @Route("/new", name="episode_new", methods={"GET","POST"})
      */
-    public function new(Request $request, Slugify $slugify): Response
+    public function new(Request $request, Slugify $slugify ,MailerInterface $mailer): Response
     {
         $episode = new Episode();
         $form = $this->createForm(EpisodeType::class, $episode);
@@ -45,6 +47,16 @@ class EpisodeController extends AbstractController
             $episode->setSlug($slug);
             $entityManager->persist($episode);
             $entityManager->flush();
+            $program = $episode->getProgram();
+
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('56f23e496d-5edd50@inbox.mailtrap.io')
+                ->subject('Un nouvel épisode vient d\'être publiée !')
+                ->html($this->renderView('episode/newEpisodeEmail.html.twig', ['episode' => $episode , 'program' => $program]));
+
+            $mailer->send($email);
+            // [...]
 
             return $this->redirectToRoute('episode_index');
         }

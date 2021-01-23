@@ -1,17 +1,93 @@
 $theme-colors: (
-    "primary": #3f51b5,
+    "primary": #4A235A,
     "secondary": #bdbdbd,
 );
 
 @import "~bootstrap/scss/bootstrap";
 
 body{
-    background-color:#bdbdbd
+    background-image: url('https://pixabay.com/get/ge65f0593e0ec2fe9ecce4f074e378087b583abdcd2ef5d5bcddc852f992e4682183708197c6b2f99ad6b5c525562e61e_1920.jpg');
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Texturina', serif;
+    color:white;
 };
+.nav-link{
+    color:white;
+}
 .navbar-nav{
     display:flex;
     justify-content: space-around;
 }
-img{
-    height: 50%;
+.container-card{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card{
+    width:30vw;
+    margin-bottom:1rem;
+}
+.container-card-show{
+    display:flex;
+    justify-content: center;
+}
+.card-img-top{
+    width: 40vw;
+    height: 60vh;
+}
+.countainer-category{
+    display:flex;
+    flex-direction: row;
+}
+form{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    text-shadow: 1px 1px 2px purple, 0 0 1em blue, 0 0 0.2em blue;
+}
+#inputEmail, #inputPassword{
+    width:50%;
+    text-align:center;
+    margin-bottom:1rem;
+}
+input, select{
+    width: 70vw;
+    display:flex;
+    justify-content: center;
+}
+.btn{
+    width:auto;
+    height:5vh;
+    color:white;
+    margin-top: 0;
+}
+textarea{
+    width: 80vw;
+    height:20vh;
+    display:flex;
+    justify-content: center;
+}
+.container-list {
+    display:flex;
+    justify-content: space-around;
+}
+.container-list li {
+    list-style: none;
+}
+h1, .navbar-brand{
+    color:white;
+    text-shadow: 1px 1px 2px purple, 0 0 1em blue, 0 0 0.2em blue;
+    text-align:center;
+}
+.table{
+    background-color: #4A235A;
+}
+.episode-index{
+    background-color: #4A235A;
+    li{
+        list-style: none;
+    }
 }

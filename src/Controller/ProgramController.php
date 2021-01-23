@@ -13,7 +13,7 @@ use App\Service\Slugify;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Mailer\MailerInterface;
 use App\Entity\Comment;
-
+use Symfony\Component\Mime\Email;
 
 /**
  * @Route("/program")
@@ -47,10 +47,10 @@ class ProgramController extends AbstractController
             $entityManager->flush();
 
             $email = (new Email())
-                ->from('your_email@example.com')
-                ->to('your_email@example.com')
+                ->from($this->getParameter('mailer_from'))
+                ->to('56f23e496d-5edd50@inbox.mailtrap.io')
                 ->subject('Une nouvelle série vient d\'être publiée !')
-                ->html('<p>Une nouvelle série vient d\'être publiée sur Wild Séries !</p>');
+                ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
 
             $mailer->send($email);
             // [...]
