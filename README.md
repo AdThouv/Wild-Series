@@ -37,3 +37,6 @@ https://www.loom.com/share/f5137512262e4a34b3adfcd4aab22547
 
 Quetes 19
 https://www.loom.com/share/b573efdf791d475e8e495eb0fe749063
+
+Quetes 20
+https://www.loom.com/share/e72cc329152744dda9e7532c23ab8b48
