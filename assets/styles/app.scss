@@ -1,24 +1,26 @@
 $theme-colors: (
-    "primary": #4A235A,
+    "primary":#154360  ,
     "secondary": #bdbdbd,
 );
 
 @import "~bootstrap/scss/bootstrap";
 
 body{
-    background-image: url('https://pixabay.com/get/ge65f0593e0ec2fe9ecce4f074e378087b583abdcd2ef5d5bcddc852f992e4682183708197c6b2f99ad6b5c525562e61e_1920.jpg');
+    background-color:#CCD1D1;
     background-size: 100%;
     background-attachment: fixed;
     font-family: 'Texturina', serif;
     color:white;
 };
 .nav-link{
-    color:white;
+    color:#154360;
+    text-shadow: 1px 1px 2px white , 0 0 1em #154360 , 0 0 0.2em #154360 ;
 }
 .navbar-nav{
     display:flex;
     justify-content: space-around;
 }
+
 .container-card{
     display:flex;
     flex-wrap: wrap;
@@ -27,18 +29,22 @@ body{
 .card{
     width:30vw;
     margin-bottom:1rem;
+    
 }
 .container-card-show{
     display:flex;
     justify-content: center;
 }
 .card-img-top{
-    width: 40vw;
-    height: 60vh;
+    width: 100%;
+    height: 70vh;
 }
 .countainer-category{
     display:flex;
     flex-direction: row;
+}
+.card-body{
+    color:#154360;
 }
 form{
     text-align: center;
@@ -46,7 +52,7 @@ form{
     flex-direction: column;
     align-items: center;
     color:white;
-    text-shadow: 1px 1px 2px purple, 0 0 1em blue, 0 0 0.2em blue;
+    text-shadow: 1px 1px 2px #154360 , 0 0 1em #154360 , 0 0 0.2em #154360;
 }
 #inputEmail, #inputPassword{
     width:50%;
@@ -62,7 +68,7 @@ input, select{
     width:auto;
     height:5vh;
     color:white;
-    margin-top: 0;
+    margin-top: 0
 }
 textarea{
     width: 80vw;
@@ -79,14 +85,19 @@ textarea{
 }
 h1, .navbar-brand{
     color:white;
-    text-shadow: 1px 1px 2px purple, 0 0 1em blue, 0 0 0.2em blue;
+    text-shadow: 1px 1px 2px #154360 , 0 0 1em #154360 , 0 0 0.2em #154360 ;
     text-align:center;
 }
 .table{
-    background-color: #4A235A;
+    background-color:#154360;
+    color:white;
+    a{
+        color:white;
+    }
+
 }
 .episode-index{
-    background-color: #4A235A;
+    color:#154360;
     li{
         list-style: none;
     }

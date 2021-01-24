@@ -9,9 +9,10 @@
             <div class="card">
                 <img style="height: 50vh;width : 100%;" src="{{ program.poster }}" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">{{ program.title }}</h5> <a href="{{ path('program_show', {'slug': program.slug}) }}" class="btn btn-primary">Voir plus</a>
-                   
-                    <a href="{{ path('program_edit', {'slug': program.slug}) }}" class="btn btn-primary">Editer</a>
+                    <h5 class="card-title">{{ program.title }}</h5> <a href="{{ path('program_show', {'slug': program.slug}) }}">Voir plus</a></br>
+                    {% if is_granted("ROLE_ADMIN") %}
+                    <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+                    {% endif %}
                 </div>
             </div>
         {% else %}
