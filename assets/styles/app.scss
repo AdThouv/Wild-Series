@@ -59,14 +59,18 @@ form{
     text-align:center;
     margin-bottom:1rem;
 }
+#registration_form_email, #registration_form_plainPassword{
+    width:100%;
+    text-align:center;
+    margin-bottom:1rem;
+
+}
 input, select{
     width: 70vw;
     display:flex;
     justify-content: center;
 }
 .btn{
-    width:auto;
-    height:5vh;
     color:white;
     margin-top: 0
 }
