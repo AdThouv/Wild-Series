@@ -13,9 +13,6 @@
         <a class="nav-link" href="{{ path('program_index') }}">{{'Series'| trans}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ path('category_index') }}">{{'Catégories'| trans}}</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{{ path('episode_index') }}">{{'Episodes'| trans}}</a>
       </li>
       <li class="nav-item">
@@ -34,6 +31,19 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="{{ path('app_index', {'_locale':'fr'})}}">Francais</a>
           <a class="dropdown-item" href="{{ path('app_index', {'_locale':'en'})}}">English</a>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         {{'Categories' | trans}}
+        </button>
+        <div class="dropdown-menu">
+          <ul>
+            {{ render(controller(
+             'App\\Controller\\DefaultController::navbarTop'
+            )) }}
+          </ul>
+
         </div>
       </div>
 
