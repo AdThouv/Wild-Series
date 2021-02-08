@@ -102,11 +102,8 @@ class ProgramController extends AbstractController
      */
     public function edit(Request $request, Program $program): Response
     {   
-        // Check wether the logged in user is the owner of the program
-        if (!($this->getUser() == $program->getOwner())) {
-            // If not the owner, throws a 403 Access Denied exception
-            throw new AccessDeniedException('Only the owner can edit the program!');
-        }
+
+        
         $form = $this->createForm(Program1Type::class, $program);
         $form->handleRequest($request);
 

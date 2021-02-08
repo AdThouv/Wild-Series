@@ -4,30 +4,22 @@
 
 {% block body %}
     <h1>{{'Acteurs' | trans }}</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{'Noms' | trans}}</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="container-card">
         {% for actor in actors %}
-            <tr>
-                <td>{{ actor.name }}</td>
-                <td>
+            <div class="card">
+                <img style="height: 50vh;width : 100%; margin-top:7rem;" src="/uploads/{{ actor.picture }}" alt="">
+                <div class="card-body">
+                    <h1 class="card-title">{{ actor.name }}</h1>
                     <a href="{{ path('actor_show', {'id': actor.id}) }}">{{'Voir plus' | trans }}</a>
                     <a href="{{ path('actor_edit', {'id': actor.id}) }}">{{'Modifier' | trans }}</a>
-                </td>
-            </tr>
+                </div>
+            </div>
         {% else %}
             <tr>
                 <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+        </div>
 
     <a href="{{ path('actor_new') }}">{{'Créer acteur' | trans }}</a>
 {% endblock %}

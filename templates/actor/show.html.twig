@@ -10,12 +10,14 @@
             <tr>
                 <th>Name</th>
                 <td>{{ actor.name }}</td>
+                <img style="height: 50vh;width : 30%; margin-top:7rem;" src="/uploads/{{ actor.picture }}" alt="">
             </tr>
             <tr>
                 <th>Séries</th>
                   <td><ul>
                     {% for program in actor.programs %}
                         <li><a href="{{ path('program_show', {'slug': program.slug}) }}">{{ program.title }}</a></li>
+                        
                     {% else %}
                         <li>Aucun acteur pour cette série</li>
                     {% endfor %}
